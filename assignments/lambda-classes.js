@@ -28,7 +28,7 @@ class Instructor extends Person {
     // STRETCH grade
     grade(student) {
         let g = Math.floor(Math.random()*100+1);
-        console.log(g);
+        // console.log(g);
         if (g > 50) student.grade += g;
         else student.grade -= g;
         console.log(`${this.name} gives ${student.name} a grade of ${student.grade}`);
@@ -55,10 +55,10 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-    graduate() {
-        // AUTOMATIC GRADING for pebbles
+    graduate(instructor) {
+        // AUTOMATIC GRADING
         while (this.grade < 70) {
-            fred.grade(pebbles);
+            instructor.grade(this);
         }
         if (this.grade >= 70) console.log(`${this.name} worked hard and graduated with a grade of ${this.grade}`);
     }
@@ -125,4 +125,4 @@ const fred = new Instructor({
 //   STRETCH
 fred.grade(pebbles);
 
-pebbles.graduate();
+pebbles.graduate(fred);
