@@ -20,8 +20,19 @@ class Instructor extends Person {
     demo(subject) {
         console.log(`${this.name} says: Today we are learning about ${subject}`);
     }
-    grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+    // MVP grade
+    // grade(student, subject) {
+    //     console.log(`${student.name} receives a perfect score on ${subject}`);
+    // }
+
+    // STRETCH grade
+    grade(student) {
+        let g = Math.floor(Math.random()*100+1);
+        console.log(g);
+        if (g > 50) student.grade += g;
+        else student.grade -= g;
+        console.log(`${this.name} gives ${student.name} a grade of ${student.grade}`);
+        return;
     }
 }
 
@@ -31,6 +42,7 @@ class Student extends Person {
         this.previousBackground = att.previousBackground;
         this.className = att.className;
         this.favSubjects = att.favSubjects;
+        this.grade = att.grade;
     }
     listSubjects() {
         for (let e in this.favSubjects) {
@@ -42,6 +54,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        // AUTOMATIC GRADING for pebbles
+        while (this.grade < 70) {
+            fred.grade(pebbles);
+        }
+        if (this.grade >= 70) console.log(`${this.name} worked hard and graduated with a grade of ${this.grade}`);
     }
 }
 
@@ -79,6 +98,7 @@ const fred = new Instructor({
     catchPhrase: `Goo Goo babyTalk`,
     className: `WEB17`,
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 0,
   });
 
   const steve = new ProjectManager({
@@ -90,14 +110,19 @@ const fred = new Instructor({
     specialty: 'Good Times',
     catchPhrase: `You know what it is!`,
     gradClassName: 'CS1',
-    favInstructor: 'Josh Knell',
+    favInstructor: 'fred',
   });
 
   fred.demo('farts');
-  fred.grade(pebbles, 'farts');
+//   fred.grade(pebbles, 'farts');
   pebbles.listSubjects();
   pebbles.PRAssignment('farts');
   pebbles.sprintChallenge('farts');
   steve.standUp('WEB17');
   steve.debugsCode(pebbles,'farts');
   steve.speak();
+
+//   STRETCH
+fred.grade(pebbles);
+
+pebbles.graduate();
