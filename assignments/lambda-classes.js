@@ -88,6 +88,16 @@ const fred = new Instructor({
     catchPhrase: `Don't forget the homies`
   });
 
+  const josh = new Instructor({
+    name: 'Josh Knell',
+    location: 'Degobah',
+    age: 30,
+    gender: 'male',
+    favLanguage: 'Banjo',
+    specialty: 'Beard',
+    catchPhrase: `Big Boss`
+  });
+
   const pebbles = new Student({
     name: 'Pebbles',
     location: 'Bedrock',
@@ -98,6 +108,19 @@ const fred = new Instructor({
     catchPhrase: `Goo Goo babyTalk`,
     className: `WEB17`,
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 0,
+  });
+
+  const ricky = new Student({
+    name: 'Richard',
+    location: 'California',
+    age: 47,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'front-end',
+    catchPhrase: `I am not a crook`,
+    className: `WEB17`,
+    favSubjects: ['Foreign Policy', 'War', 'Secrecy'],
     grade: 0,
   });
 
@@ -113,6 +136,18 @@ const fred = new Instructor({
     favInstructor: 'fred',
   });
 
+  const janis = new ProjectManager({
+    name: 'Janis Joplin',
+    location: 'Haight/Ashbury',
+    age: 27,
+    gender: 'female',
+    favLanguage: 'Whiskey',
+    specialty: 'Howling',
+    catchPhrase: `This is a song of great social and political import`,
+    gradClassName: 'SF1969',
+    favInstructor: 'josh',
+  });
+
   fred.demo('farts');
 //   fred.grade(pebbles, 'farts');
   pebbles.listSubjects();
@@ -121,6 +156,19 @@ const fred = new Instructor({
   steve.standUp('WEB17');
   steve.debugsCode(pebbles,'farts');
   steve.speak();
+
+  janis.standUp('SAN FRAN!');
+  janis.debugsCode(pebbles,'rock');
+  janis.speak();
+
+  ricky.listSubjects();
+  ricky.PRAssignment('recording');
+  ricky.sprintChallenge('vietnam');
+
+  josh.demo();
+
+  ricky.graduate(josh);
+
 
 //   STRETCH
 fred.grade(pebbles);
